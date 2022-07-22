@@ -48,7 +48,7 @@ The Team Peofile Generator generator utilizes Inquire.js to prompt users with a 
 Follow the instructions below to generate custom README files: 
 
 - You will need to download the repository files to your local machine. 
-- Open the command prompt and navigate to the folder labeled "Develop" within the repository.
+- Open the command prompt and navigate to the directory labeled "Develop" within the repository.
 - Type the two following commands into the command prompt: 
 ```
 npm init -y 
@@ -60,14 +60,16 @@ npm install
 ```
 node index.js
 ```
-- You will then be presented with a series of questions about your project.
-- Once these questions are answered, a README file tited <i>ResultREADME.md </i> will be generated and added to the repository folder. 
+- You will then be presented with a series of questions about your teammates.
+- Once these questions are answered, an HTML file tited <i>Result.html </i> will be generated and added to the repository folder. 
+- You can open the Result.html page in your default browser to view the generated team profile. 
+
 
 ## Usage
 
 Refer to video linked below for a working demonstration of the application:
 
-[![Watch the video](Develop/VideoPreview.png)](https://drive.google.com/file/d/1Yy7wYpJ-u6JIj_37esFNXO0dZydKXQz0/view?usp=sharing)
+[![Watch the video](img/VideoPreview.png)](https://drive.google.com/file/d/1iP9ZW_TUS2t4h-a2XdA56xzxs0AgcooM/view?usp=sharing)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -83,7 +85,7 @@ Refer to video linked below for a working demonstration of the application:
 
 Henry Nguyen -  hln11244@gmail.com
 
-Repository Link: [https://github.com/henry11244/ReadMeGenerator](https://github.com/henry11244/ReadMeGenerator)
+Repository Link: [https://github.com/henry11244/TeamProfileGenerator](https://github.com/henry11244/TeamProfileGenerator)
 
 linkedIn: https://www.linkedin.com/in/henry11244/
 
