@@ -1,4 +1,3 @@
-
 const Engineer = require('../index')
 
 describe("Engineer class", () => {

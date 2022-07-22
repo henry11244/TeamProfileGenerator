@@ -1,16 +1,17 @@
 // Call to use file system/inquire modules within node.js
 const inquirer = require('inquirer')
 const fs = require('fs');
-
 const finishedArray = ['Intern', 'Engineer', 'Finished']
 const employees = []
 
+// For variable that varies among employee type
 questionsVariable = (employee) => {
     if (employee.type == 'Intern') { return `School: ${employee.otherVariable}` }
     else if (employee.type == 'Engineer') { return `GitHub: <a href="https://github.com/${employee.otherVariable}">https://github.com/${employee.otherVariable}</a>` }
     else { return `Office: ${employee.otherVariable}` }
 }
 
+// For employee cards
 const HTMLcards = (employee) => {
     return `
     <div class="card col-3" style = "border: 2px solid grey; margin: 10px;" >
@@ -24,8 +25,6 @@ const HTMLcards = (employee) => {
 </div >
 
     `}
-
-
 
 // Function to write README file including the README template
 const HTMLWrite = (employees) => `<!DOCTYPE html>
@@ -53,6 +52,7 @@ const HTMLWrite = (employees) => `<!DOCTYPE html>
 
             `;
 
+// To close newly created HTML file
 const HTMLend = () => {
     return `
 
@@ -62,14 +62,14 @@ const HTMLend = () => {
 
 </html >`}
 
+// Questions for prompt
 var promptObjects = {
     manager: [`Enter your manager's name.`, `Enter your manager's ID number.`, `Enter your manager's email address.`, `Enter your manager's office number.`, 'Manager'],
     engineer: [`Enter this employee's name.`, `Enter this employee's ID number.`, `Enter this employee's email address.`, `Enter this employee's GitHub.`, 'Engineer'],
     intern: [`Enter this employee's name.`, `Enter this employee's ID number.`, `Enter this employee's email address.`, `Enter this employee's school.`, 'Intern'],
-
-
-
 }
+
+// classes (employee, intern, engineer, manager)
 class employee {
     constructor(answers, type) {
         this.type = 'employee'
@@ -144,12 +144,18 @@ function init(employeeType) {
 
     ])
         .then((answers) => {
+            // Determines class of employee
             if (employeeType[4] == 'Engineer') { var newEmployee = new Engineer(answers, employeeType[4]) }
             else if (employeeType[4] == 'Intern') { var newEmployee = new Intern(answers, employeeType[4]) }
             else { var newEmployee = new Manager(answers, employeeType[4]) }
+
+            // addes employee to employees array
             employees.push(newEmployee)
             console.log(employees)
+
             const HTMLendl = HTMLend();
+
+            // To determine whether user wants to add another intern/engineer
             if (answers.finished == 'Engineer') {
                 init(promptObjects.engineer)
             }
@@ -159,11 +165,13 @@ function init(employeeType) {
             // // answers is then used to populate README Content
             else {
                 console.log('test')
+                // Writes HTML
                 const HTMLContent = HTMLWrite(employees);
-
+                // Creates File
                 fs.writeFile('Result.html', HTMLContent, (err) =>
                     err ? console.log(err) : console.log('Successfully created HTML!')
                 );
+                //    appends employee cards
                 console.log(employee[0])
                 for (i = 0; i < employees.length; i++) {
                     fs.appendFile('Result.html', HTMLcards(employees[i]), (err) =>
@@ -171,7 +179,7 @@ function init(employeeType) {
                     );
                 }
             }
-
+            // Adds HTML ending
             if (count === employees.length) {
                 setTimeout(function () {
                     fs.appendFile('Result.html', HTMLendl, (err) =>
@@ -183,11 +191,10 @@ function init(employeeType) {
         })
 }
 
-
-
 // runs README generating functions from above on JS load.
 init(promptObjects.manager)
 
+// exports to tests
 module.exports = employee
 module.exports = Intern
 module.exports = Engineer
