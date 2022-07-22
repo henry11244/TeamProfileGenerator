@@ -151,10 +151,10 @@ function init(employeeType) {
 
             // addes employee to employees array
             employees.push(newEmployee)
-            console.log(employees)
+
 
             const HTMLendl = HTMLend();
-
+            console.log(employees)
             // To determine whether user wants to add another intern/engineer
             if (answers.finished == 'Engineer') {
                 init(promptObjects.engineer)
@@ -174,11 +174,13 @@ function init(employeeType) {
                 //    appends employee cards
                 console.log(employee[0])
                 for (i = 0; i < employees.length; i++) {
+                    count++
                     fs.appendFile('Result.html', HTMLcards(employees[i]), (err) =>
                         err ? console.log(err) : console.log('card')
                     );
                 }
             }
+            var count = 0
             // Adds HTML ending
             if (count === employees.length) {
                 setTimeout(function () {
