@@ -30,7 +30,7 @@
 
 The motivation behind this project is to create an efficient and intuitive method of producing a website to view an Engineer's team composition. 
 
-The Team Peofile Generator generator utilizes Inquire.js to prompt users with a series of questions related to their teammates and the Node.js file system module to create an HTML page based on those responses. 
+The Team Profile Generator generator utilizes Inquire.js to prompt users with a series of questions related to their teammates and the Node.js file system module to create an HTML page based on those responses. 
 
 <img src="img/JS%20Image.png" alt="JavaScript Screenshot" style="width:500px;"/>
 
